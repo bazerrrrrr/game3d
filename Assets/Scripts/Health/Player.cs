@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     public float maxHealth = 100f;
     public HealthView healthView;
-    public GameObject gameOverPanel;
+    public GameOver gameOver;
 
     private Health health;
     private HealthPresenter presenter;
@@ -29,9 +29,9 @@ public class Player : MonoBehaviour
 
     void Die()
     {
-        if (gameOverPanel != null)
+        if (gameOver != null)
         {
-            gameOverPanel.SetActive(true);
+            gameOver.Show();
         }
     }
 

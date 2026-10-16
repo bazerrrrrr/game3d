@@ -30,6 +30,10 @@ public class Vision : MonoBehaviour
 
     private void Update()
     {
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
         // проверяем относительно какой оси двигается персонаж
         if (_axes == RotationAxes.XandY)
         {

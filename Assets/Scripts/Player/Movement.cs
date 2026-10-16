@@ -18,6 +18,11 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
+
         float deltaX = Input.GetAxis("Horizontal") * _speed;
         float deltaZ= Input.GetAxis("Vertical") * _speed;
         Vector3 movement = new Vector3(deltaX, 0, deltaZ);
