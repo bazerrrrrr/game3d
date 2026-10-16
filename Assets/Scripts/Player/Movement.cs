@@ -11,6 +11,9 @@ public class Movement : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         _characterController = GetComponent<CharacterController>();
         if (_characterController == null)
             Debug.Log("CharacterController is null");
