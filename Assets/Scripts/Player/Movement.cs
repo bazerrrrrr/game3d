@@ -14,6 +14,10 @@ public class Movement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        GameObject crosshair = GameObject.Find("Crosshair"); //¬ключаем прицел обратно при старте игры
+        if (crosshair != null) 
+            crosshair.SetActive(true);
+
         _characterController = GetComponent<CharacterController>();
         if (_characterController == null)
             Debug.Log("CharacterController is null");
