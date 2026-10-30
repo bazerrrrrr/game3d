@@ -16,13 +16,14 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health.TakeDamage(amount);
-        if (health.currentHP <= 0)
+        if (health.currentHP <= 0) //здоровье закончилось
         {
-            if (GameManager.instance != null)
+            if (GameManager.instance != null) //Даем очки через GameManager
             {
                 GameManager.instance.AddScore(scoreValue);
             }
 
+            //Ищем на сцене Спавнер и просим его создать нового врага
             EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
             if (spawner != null)
             {

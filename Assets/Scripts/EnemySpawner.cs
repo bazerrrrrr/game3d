@@ -25,10 +25,10 @@ public class EnemySpawner : MonoBehaviour
         Vector2 randomCircle = Random.insideUnitCircle * spawnRadius;
         Vector3 spawnPos = new Vector3(transform.position.x + randomCircle.x, transform.position.y, transform.position.z + randomCircle.y);
 
-        Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+        Instantiate(enemyPrefab, spawnPos, Quaternion.identity); //создание врага
     }
     public void RequestRespawn()
     {
-        Invoke("SpawnEnemy", respawnDelay);
+        Invoke("SpawnEnemy", respawnDelay); // Invoke вызывает метод SpawnEnemy через respawnDelay секунд
     }
 }

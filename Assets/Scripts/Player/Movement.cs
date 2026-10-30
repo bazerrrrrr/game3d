@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
     public float _speed = 6.0f;
     public float _gravity = -9.8f;
 
-    public PlayerInput playerInput; //ссылка на скрипт управления
+    public PlayerInput playerInput;
     private CharacterController _characterController;
 
     private void Start()
@@ -37,10 +37,11 @@ public class Movement : MonoBehaviour
         float deltaX = playerInput.horizontalInput * _speed;
         float deltaZ = playerInput.verticalInput * _speed;
 
-        Vector3 movement = new Vector3(deltaX, 0, deltaZ);
-        movement = Vector3.ClampMagnitude(movement, _speed);
+        Vector3 movement = new Vector3(deltaX, 0, deltaZ); // Создаем вектор направления
+        movement = Vector3.ClampMagnitude(movement, _speed); //чтобы не бегал быстрее по диагонали
         movement.y = _gravity;
 
+        // Умножаем на Time.deltaTime, чтобы скорость не зависела от FPS
         movement *= Time.deltaTime;
         movement = transform.TransformDirection(movement);
         _characterController.Move(movement); 

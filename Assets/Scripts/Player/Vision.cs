@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Vision : MonoBehaviour
 {
-  public enum RotationAxes
+  public enum RotationAxes 
     {
         XandY,
         X,
@@ -23,6 +23,8 @@ public class Vision : MonoBehaviour
 
     private void Start()
     {
+
+        // запрещаем физике крутить камеру
         Rigidbody body = GetComponent<Rigidbody>();
         if (body != null )
             body.freezeRotation = true;  
@@ -38,7 +40,7 @@ public class Vision : MonoBehaviour
         if (_axes == RotationAxes.XandY)
         {
             _rotationX -= Input.GetAxis("Mouse Y") * _rotationSpeedVer;
-            _rotationX = Mathf.Clamp(_rotationX, minVer, maxVer);
+            _rotationX = Mathf.Clamp(_rotationX, minVer, maxVer); //Mathf.Clamp не дает углу выйти за пределы minVer и maxVer
 
             float delta = Input.GetAxis("Mouse X") * _rotationSpeedHor;
             float _rotationY = transform.localEulerAngles.y + delta;

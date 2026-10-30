@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
     public float seeDistance = 15f;   // с какого расстояния видит игрока
     public float fireRate = 1.5f;
 
-    private Transform player;         // где находится игрок
+    private Transform player;        
     private float nextShootTime = 0f;
     private NavMeshAgent agent;
 
@@ -29,7 +29,7 @@ public class EnemyAI : MonoBehaviour
         // Считаем расстояние до игрока
         float distance = Vector3.Distance(transform.position, player.position);
 
-        if (distance < seeDistance)
+        if (distance < seeDistance) //ближе 15, то идет к игроку
         {
             agent.isStopped = false;
             agent.SetDestination(player.position);
@@ -39,8 +39,9 @@ public class EnemyAI : MonoBehaviour
             dir.y = 0;
             if (dir != Vector3.zero)
             {
+                // Quaternion.LookRotation создает поворот, который смотрит в сторону dir
                 Quaternion lookRotation = Quaternion.LookRotation(dir);
-                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 5f * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 5f * Time.deltaTime); //Slerp это плавный поворот
             }
 
             // стрельба по таймеру
@@ -52,7 +53,7 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            agent.isStopped = true;
+            agent.isStopped = true; //остановка, если игрок далеко от врага
         }
     }
 }

@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.H))  // Тестовая кнопка H 
         {
             TakeDamage(10);
         }

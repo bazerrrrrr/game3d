@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPresenter
+public class HealthPresenter // св€зываем модель (Health) и отображение (HealthView)
 {
     private Health health;
     private HealthView view;
@@ -13,12 +13,12 @@ public class HealthPresenter
         this.view = view;
     }
 
-    public void UpdateUI ()
+    public void UpdateUI () // ќбновл€ет картинку на основе данных из модели
     {
         view.Show(health.currentHP, health.maxHP);
     }
 
-    public void Damage(float amount)
+    public void Damage(float amount) // ћетод дл€ нанесени€ урона
     {
         health.TakeDamage(amount);
         UpdateUI();

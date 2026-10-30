@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     public GameObject gameOverPanel;
-    public GameObject crosshair;
+    public GameObject crosshair;// Прицел
+
+    public AudioSource clickSound;
 
     public void Show()
     {
@@ -29,7 +31,13 @@ public class GameOver : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        Time.timeScale = 1f;
+        if (clickSound != null) clickSound.Play();
+
+        Time.timeScale = 1f; //время возвращаем в норму
+        Invoke("LoadMenuScene", 0.4f);
+    }
+    void LoadMenuScene()
+    {
         SceneManager.LoadScene("MainMenu");
     }
 }
