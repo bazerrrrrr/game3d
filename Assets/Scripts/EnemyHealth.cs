@@ -6,6 +6,10 @@ public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth = 50f;
     public int scoreValue = 5;
+    
+    //звук
+    public AudioClip deathSound;
+
     private Health health;
 
     private void Start()
@@ -29,7 +33,23 @@ public class EnemyHealth : MonoBehaviour
             {
                 spawner.RequestRespawn();
             }
-            Destroy(gameObject); //враг умирает
+            //звук смерти
+            if (deathSound != null)
+            {
+                // Создаем пустой объект на месте смерти врага
+                GameObject soundObj = new GameObject("EnemyDeathSound");
+                soundObj.transform.position = transform.position;
+
+                // Добавляем ему звук и вкл
+                AudioSource audio = soundObj.AddComponent<AudioSource>();
+                audio.clip = deathSound;
+                audio.volume = 0.3f;
+                audio.Play();
+
+                // Удаляем этот объект, когда звук доиграет
+                Destroy(soundObj, deathSound.length);
+            }    
+                Destroy(gameObject); //враг умирает
         }
     }
 }

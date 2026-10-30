@@ -9,6 +9,8 @@ public class GameOver : MonoBehaviour
     public GameObject crosshair;// Прицел
 
     public AudioSource clickSound;
+    public GameObject backgroundMusic;
+    public AudioSource deathMusic;
 
     public void Show()
     {
@@ -23,6 +25,18 @@ public class GameOver : MonoBehaviour
         if (crosshair != null )
         {
             crosshair.SetActive(false);
+        }
+
+        //выкл музыка игрового момента
+        if (backgroundMusic != null)
+        {
+            backgroundMusic.SetActive(false);
+        }
+
+        //вкл другую музыку
+        if (deathMusic != null)
+        {
+            deathMusic.Play();
         }
     }
 

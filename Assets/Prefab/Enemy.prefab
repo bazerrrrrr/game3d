@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   scoreValue: 5
+  deathSound: {fileID: 8300000, guid: 4a113a57635b52b46bd22e66b544d682, type: 3}
 --- !u!114 &5562041277587202210
 MonoBehaviour:
   m_ObjectHideFlags: 0
