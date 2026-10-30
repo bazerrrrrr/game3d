@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemyPrefab;
     public int maxEnemies = 5;
     public float spawnRadius = 15f; // в каком радиусе от спаунера появляются враги
-    public float respawnDelay = 15f;  // через сколько секунд после смерти появится новый
+    public float respawnDelay = 10f;  // через сколько секунд после смерти появится новый
 
     void Start()
     {

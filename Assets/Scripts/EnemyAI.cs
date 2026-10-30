@@ -10,6 +10,10 @@ public class EnemyAI : MonoBehaviour
     public float seeDistance = 15f;   // с какого расстояния видит игрока
     public float fireRate = 1.5f;
 
+    //звук
+    public AudioSource audioSource;
+    public AudioClip[] shootSounds;
+
     private Transform player;        
     private float nextShootTime = 0f;
     private NavMeshAgent agent;
@@ -49,6 +53,14 @@ public class EnemyAI : MonoBehaviour
             {
                 nextShootTime = Time.time + fireRate;
                 Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+
+
+                //звук выстрела
+                if (audioSource != null && shootSounds.Length > 0)
+                {
+                    int randomIndex = Random.Range(0, shootSounds.Length);
+                    audioSource.PlayOneShot(shootSounds[randomIndex]);
+                }
             }
         }
         else
