@@ -11,15 +11,33 @@ public class EnemyHealth : MonoBehaviour
     public AudioClip deathSound;
 
     private Health health;
+    private Renderer enemyRenderer; // красит капсулу
+    private Color originalColor;    // Запоминаем изначальный цвет
 
     private void Start()
     {
         health = new Health(maxHealth);
+
+        enemyRenderer = GetComponentInChildren<Renderer>();
+
+        // Запоминаем цвет, который сейчас
+        if (enemyRenderer != null)
+        {
+            originalColor = enemyRenderer.material.color;
+        }
     }
 
     public void TakeDamage(float amount)
     {
         health.TakeDamage(amount);
+        if (enemyRenderer != null)
+        {
+            enemyRenderer.material.color = Color.white;
+
+            // через 0.1 секунду вызов метода ResetColor
+            Invoke("ResetColor", 0.1f);
+        }
+
         if (health.currentHP <= 0) //здоровье закончилось
         {
             if (GameManager.instance != null) //Даем очки через GameManager
@@ -43,13 +61,20 @@ public class EnemyHealth : MonoBehaviour
                 // Добавляем ему звук и вкл
                 AudioSource audio = soundObj.AddComponent<AudioSource>();
                 audio.clip = deathSound;
-                audio.volume = 0.3f;
+                audio.volume = 0.5f;
                 audio.Play();
 
                 // Удаляем этот объект, когда звук доиграет
                 Destroy(soundObj, deathSound.length);
             }    
-                Destroy(gameObject); //враг умирает
+            Destroy(gameObject); //враг умирает
+        }
+    }
+    void ResetColor()
+    {
+        if (enemyRenderer != null)
+        {
+            enemyRenderer.material.color = originalColor;
         }
     }
 }
