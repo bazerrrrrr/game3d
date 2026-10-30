@@ -921,9 +921,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.8792453, g: 0.21732287, b: 0.8295766, a: 1}
+  m_Color: {r: 0.9019608, g: 0.77254903, b: 0.89411765, a: 1}
   m_Intensity: 1
-  m_Range: 25
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2298,9 +2298,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.8792453, g: 0.21732287, b: 0.8295766, a: 1}
+  m_Color: {r: 0.9019608, g: 0.77254903, b: 0.89411765, a: 1}
   m_Intensity: 1
-  m_Range: 25
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2415,8 +2415,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281803317
-  m_fontColor: {r: 0.20744663, g: 0.13433252, b: 0.21509439, a: 1}
+    rgba: 4291145667
+  m_fontColor: {r: 0.76538336, g: 0.6874688, b: 0.7735849, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2943,9 +2943,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.8792453, g: 0.21732287, b: 0.8295766, a: 1}
+  m_Color: {r: 0.9019608, g: 0.77254903, b: 0.89411765, a: 1}
   m_Intensity: 1
-  m_Range: 25
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -4450,9 +4450,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.8792453, g: 0.21732287, b: 0.8295766, a: 1}
+  m_Color: {r: 0.9019608, g: 0.77254903, b: 0.89411765, a: 1}
   m_Intensity: 1
-  m_Range: 25
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -4544,9 +4544,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.8792453, g: 0.21732287, b: 0.8295766, a: 1}
+  m_Color: {r: 0.90188676, g: 0.7742613, b: 0.8928246, a: 1}
   m_Intensity: 1
-  m_Range: 25
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
