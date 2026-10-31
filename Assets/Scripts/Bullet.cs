@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.CompareTag("Player")) //попали в игрока
         {
-            Player player = other.GetComponent<Player>();
+            Player player = other.GetComponent<Player>(); //на этом объекте ищем скрипт Player
             if (player != null) player.TakeDamage(damage);
             Destroy(gameObject);
         }

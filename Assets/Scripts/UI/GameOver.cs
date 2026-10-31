@@ -48,7 +48,7 @@ public class GameOver : MonoBehaviour
         if (clickSound != null) clickSound.Play();
 
         Time.timeScale = 1f; //время возвращаем в норму
-        Invoke("LoadMenuScene", 0.4f);
+        Invoke("LoadMenuScene", 0.4f); //задержка на 0,4 сек
     }
     void LoadMenuScene()
     {

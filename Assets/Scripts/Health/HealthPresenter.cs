@@ -20,13 +20,7 @@ public class HealthPresenter // св€зываем модель (Health) и отображение (HealthV
 
     public void Damage(float amount) // ћетод дл€ нанесени€ урона
     {
-        health.TakeDamage(amount);
-        UpdateUI();
-    }
-
-    public void Heal(float amount)
-    {
-        health.Heal(amount);
+        health.TakeDamage(amount); //мен€ютс€ цифры в модели
         UpdateUI();
     }
 }

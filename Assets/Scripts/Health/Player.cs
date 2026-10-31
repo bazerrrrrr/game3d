@@ -13,9 +13,9 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        health = new Health(maxHealth);
-        presenter = new HealthPresenter(health, healthView);
-        presenter.UpdateUI();
+        health = new Health(maxHealth); //создание цифр
+        presenter = new HealthPresenter(health, healthView); //связывание с UI
+        presenter.UpdateUI(); //начальное здоровье показываем
     }
 
     public void TakeDamage(float amount)
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     {
         if (gameOver != null)
         {
-            gameOver.Show();
+            gameOver.Show(); //показываем экран смерти
         }
     }
 

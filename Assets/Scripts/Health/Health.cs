@@ -7,7 +7,7 @@ public class Health
     public float maxHP;
     public float currentHP;
 
-    public Health(float max)
+    public Health(float max) //создаем здоровье
     {
         maxHP = max;
         currentHP = max;
@@ -15,18 +15,9 @@ public class Health
     public void TakeDamage(float damage)
     {
         currentHP = currentHP - damage;
-        if (currentHP < 0) // не даем здоровью уйти в минус
+        if (currentHP < 0) // если ушло в минус, то приравниваем к нулю
         {
             currentHP = 0;
-        }
-    }
-
-    public void Heal(float amout)
-    {
-        currentHP = currentHP + amout;
-        if (currentHP > maxHP) // Не даем здоровью превысить максимум
-        {
-            currentHP = maxHP;
         }
     }
 }

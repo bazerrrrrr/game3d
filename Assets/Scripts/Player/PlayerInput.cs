@@ -12,6 +12,7 @@ public class PlayerInput : MonoBehaviour
         {
             return;
         }
+        //это само чтение
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
     }

@@ -21,11 +21,10 @@ public class EnemySpawner : MonoBehaviour
     // ћетод создани€ одного врага
     public void SpawnEnemy()
     {
-        // ¬ыбираем случайную точку в радиусе
-        Vector2 randomCircle = Random.insideUnitCircle * spawnRadius;
+        Vector2 randomCircle = Random.insideUnitCircle * spawnRadius; //insideUnitCircle берет рандом точку в круге
         Vector3 spawnPos = new Vector3(transform.position.x + randomCircle.x, transform.position.y, transform.position.z + randomCircle.y);
 
-        Instantiate(enemyPrefab, spawnPos, Quaternion.identity); //создание врага
+        Instantiate(enemyPrefab, spawnPos, Quaternion.identity); //создание врага с нулевым поворотом
     }
     public void RequestRespawn()
     {

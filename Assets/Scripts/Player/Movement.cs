@@ -6,8 +6,8 @@ public class Movement : MonoBehaviour
 {
     public float _speed = 6.0f;
     public float _gravity = -9.8f;
-
     public PlayerInput playerInput;
+
     private CharacterController _characterController;
 
     private void Start()
@@ -21,8 +21,6 @@ public class Movement : MonoBehaviour
             crosshair.SetActive(true);
 
         _characterController = GetComponent<CharacterController>();
-        if (_characterController == null)
-            Debug.Log("CharacterController is null");
     }
 
     private void Update()
@@ -34,16 +32,17 @@ public class Movement : MonoBehaviour
         }
 
         // Ѕерем данные из скрипта PlayerInput
-        float deltaX = playerInput.horizontalInput * _speed;
+        float deltaX = playerInput.horizontalInput * _speed; //6.0f
         float deltaZ = playerInput.verticalInput * _speed;
 
         Vector3 movement = new Vector3(deltaX, 0, deltaZ); // —оздаем вектор направлени€
         movement = Vector3.ClampMagnitude(movement, _speed); //чтобы не бегал быстрее по диагонали
+        
         movement.y = _gravity;
 
         // ”множаем на Time.deltaTime, чтобы скорость не зависела от FPS
         movement *= Time.deltaTime;
-        movement = transform.TransformDirection(movement);
+        movement = transform.TransformDirection(movement);//чтобы двигатьс€ туда, куда смотрим
         _characterController.Move(movement); 
     }
 }

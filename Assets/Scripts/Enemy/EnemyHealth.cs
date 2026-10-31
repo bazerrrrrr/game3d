@@ -16,7 +16,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
-        health = new Health(maxHealth);
+        health = new Health(maxHealth); //MVP модель, будет хранить в себе текущие цифры HP
 
         enemyRenderer = GetComponentInChildren<Renderer>();
 
@@ -64,7 +64,7 @@ public class EnemyHealth : MonoBehaviour
                 audio.volume = 0.5f;
                 audio.Play();
 
-                // Удаляем этот объект, когда звук доиграет
+                // Удаляем этот звук, когда доиграет
                 Destroy(soundObj, deathSound.length);
             }    
             Destroy(gameObject); //враг умирает

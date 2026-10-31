@@ -12,7 +12,7 @@ public class HealthView : MonoBehaviour
 
     public void Show(float current, float max)
     {
-        healthBar.fillAmount = current / max;
+        healthBar.fillAmount = current / max; //получаем процент заполнения
         if (healthText != null)
         {
             healthText.text = current + " / " + max;

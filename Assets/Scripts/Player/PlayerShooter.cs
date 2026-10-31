@@ -18,16 +18,17 @@ public class PlayerShooter : MonoBehaviour
         if (Time.timeScale == 0f) 
             return;
 
-        if (Input.GetMouseButtonDown(0) && Time.time > nextShootTime) //проверка клика и задержки с прошлого выстрела
+        if (Input.GetMouseButtonDown(0) && Time.time > nextShootTime) //если нажали и прошло достаточно времени после выстрела
         {
             nextShootTime = Time.time + fireRate;
-            // Instantiate создает копию префаба в позиции shootPoint и с его поворотом
+
+            // Instantiate создает копию пули в точке shootPoint 
             Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
 
-            if (audioSource != null && shootSounds.Length > 0) //Воспроизводим один из (случайных) двух звуков
+            if (audioSource != null && shootSounds.Length > 0) //Воспроизводим один случайный звук массива, если есть
             {
                 int randomIndex = Random.Range(0, shootSounds.Length); //Выбираем случайный индекс от 0 до количества звуков
-                audioSource.PlayOneShot(shootSounds[randomIndex]); //чтоб не обрывался звук
+                audioSource.PlayOneShot(shootSounds[randomIndex]); //играем один раз, берем из массива рандомный индекс
             }    
         }
     }
